@@ -1,0 +1,13 @@
+<%- include('partials/header')%>
+<main class="index">
+    <% games.forEach((a)=>{%>
+        <div class="card">
+            <h1><%= a.title %> </h1>
+            <img src="<%= a.image %> " alt="<%= a.title %> ">
+            <p><%= a.body %> </p>
+            <a href="/games/:id">Show more</a>
+        </div>
+    <%}) %> 
+
+</main>
+<%- include('partials/footer')%>
