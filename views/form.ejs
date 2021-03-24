@@ -1,0 +1,15 @@
+<%- include('partials/header')%>
+<form action="/games" method="POST">
+    <label for="title">Title</label>
+    <input type="text" name="game[title]">
+    <label for="image">Image URL</label>
+    <input type="text" name="game[image]">
+    <label for="release">Released Year</label>
+    <input type="number" name="game[released]">
+    <label for="rating">rating</label>
+    <input type="number" name="game[rating]">
+    <label for="comment">Your Comment</label>
+   <textarea name="game[body]" cols="30" rows="10"></textarea>
+   <input type="submit">
+</form>
+<%- include('partials/footer')%>

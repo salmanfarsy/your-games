@@ -1,0 +1,16 @@
+<%- include('partials/header')%>
+<h1>Edit: <%=game.title%></h1>
+<form action="/games/<%=game._id%>?_method=PUT" method="POST">
+    <label for="title">Title</label>
+    <input type="text" name="game[title]" value="<%=game.title%>">
+    <label for="image">Image URL</label>
+    <input type="text" name="game[image]" value="<%=game.image%>">
+    <label for="release">Released Year</label>
+    <input type="number" name="game[released]" value="<%=game.released%>">
+    <label for="rating">rating</label>
+    <input type="number" name="game[rating]" value="<%=game.rating%>">
+    <label for="comment">Your Comment</label>
+   <textarea name="game[body]" cols="30" rows="10"><%=game.body%></textarea>
+   <input type="submit">
+</form>
+<%- include('partials/footer')%>
