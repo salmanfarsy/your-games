@@ -1,5 +1,3 @@
-const e = require('express');
-
 const express = require('express'),
 app = express(),
 bodyParser = require('body-parser'),
@@ -16,14 +14,14 @@ mongoose.connect('mongodb://localhost/games', {
   useFindAndModify: false,
   useCreateIndex: true
 });
-const gameSchema = mongoose.Schema({
+const gameSchema = new mongoose.Schema({
     title:String,
     rating:Number,
     released:Number,
     body:String,
     image:String,
     created:{type:Date, default:Date.now}
-})
+});
 const Game = mongoose.model('Game', gameSchema);
 
 app.get('/', (req, res)=>{
@@ -104,7 +102,7 @@ app.delete('/games/:id', (req, res)=>{
       res.redirect('/games')
     }
   })
-})
+});
 
 app.listen(3000, ()=>{
   console.log('your new server is running')
