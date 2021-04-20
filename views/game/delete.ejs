@@ -1,7 +1,8 @@
-<%- include('partials/header')%>
+<%- include('../partials/header')%>
+<%- include('../partials/nav')%>
 <h1><%=game.title%></h1>
 <form action="/games/<%=game._id%>?_method=DELETE" method="POST">
 <button type="submit">Delete it permanently</button>
 </form>
 
-<%- include('partials/footer')%>
+<%- include('../partials/footer')%>

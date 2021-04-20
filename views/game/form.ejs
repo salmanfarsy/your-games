@@ -1,4 +1,5 @@
-<%- include('partials/header')%>
+<%- include('../partials/header')%>
+<%- include('../partials/nav')%>
 <form action="/games" method="POST">
     <label for="title">Title</label>
     <input type="text" name="game[title]">
@@ -12,4 +13,4 @@
    <textarea name="game[body]" cols="30" rows="10"></textarea>
    <input type="submit">
 </form>
-<%- include('partials/footer')%>
+<%- include('../partials/footer')%>
