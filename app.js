@@ -2,15 +2,14 @@ const express = require('express'),
 app = express(),
 gameRoute = require('./routes/games'),
 Game     = require('./models/game'),
-bodyParser = require('body-parser'),
 methodOverride = require('method-override'),
 mongoose = require('mongoose');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended : true}));
 app.use(methodOverride('_method'));
-mongoose.connect('mongodb://localhost/game', {
+mongoose.connect('mongodb://localhost/game1', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

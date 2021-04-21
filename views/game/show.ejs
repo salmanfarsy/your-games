@@ -3,10 +3,14 @@
 <main class="show">
 <h1><%=game.title%></h1>
 <img src="<%=game.image%>" alt="<%=game.title%>">
-<h2>Released: <%=game.released%></h2>
-<h3>Ratings : <%=game.rating%></h3>
-<p>comment: <%=game.body%></p>
-<h4>created: <%=game.created%></h4>
+<iframe src="https://www.youtube.com/embed/<%=game.yt%>" frameborder="0"></iframe>
+<h2>Genre : <%=game.genre%></h2>
+<h2>PG Ratings : <%=game.pgRating%></h2>
+<h3>Over-All Ratings : <%-(parseInt(game.gameplay) + parseInt(game.storyline) + parseInt(game.graphics))/3 %></h3>
+<p>Gameplay : <%=game.gameplay%></p>
+<p>Storyline : <%=game.storyline%></p>
+<p>Grapihics : <%=game.graphics%></p>
+<p>Review: <%=game.review%></p>
 <a href="/games/<%=game._id%>/edit">Edit</a>
 <a href="/games/<%=game._id%>/delete">Delete</a>
 </main>

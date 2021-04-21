@@ -16,6 +16,8 @@ router.get('/games', (req, res)=>{
   
   router.post('/games', (req, res)=>{
     const input = req.body.game;
+    input.yt = input.yt.slice(32);
+   
     Game.create(input, (err, newGame)=>{
       if(err){
         console.log('second', err)
@@ -49,6 +51,7 @@ router.get('/games', (req, res)=>{
   router.put('/games/:id', (req, res)=>{
     const id = req.params.id;
     const input = req.body.game;
+    input.yt = input.yt.slice(32);
     Game.findByIdAndUpdate(id, input, (err, uptade)=>{
       if(err){
         console.log('fifth', err)
