@@ -1,0 +1,22 @@
+main{
+    padding-top: 5%;
+}
+a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--blue);
+    border: 2px solid var(--blue);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin:10px auto ;
+    transition: all 0.5s;
+}
+a:hover{
+background-color: var(--blue);
+color: black;
+}
+a:active{
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}

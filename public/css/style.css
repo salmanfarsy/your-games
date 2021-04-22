@@ -26,7 +26,7 @@ nav{
     font-size: 1.2rem
 }
 nav h1{
- color: var(--light-black);  
+ color: var(--light-black); 
 }
 nav ul{
     list-style: none;
@@ -40,8 +40,17 @@ nav ul li a{
     color: var(--black);
     text-decoration: none;
     transition:all 0.5s;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
 }
 nav ul li a:hover{
     color: white;
     border-bottom: red 1px solid;
+}
+main{
+    min-height:100vh ;
+}
+footer{
+    background-color: var(--light-black);
 }

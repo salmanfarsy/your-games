@@ -15,6 +15,8 @@ mongoose.connect('mongodb://localhost/game1', {
   useFindAndModify: false,
   useCreateIndex: true
 });
+//global variables
+
 
 app.get('/', (req, res)=>{
     res.render('home');

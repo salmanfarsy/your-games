@@ -1,15 +1,23 @@
 <%- include('../partials/header')%>
+<link rel="stylesheet" href="/css/index.css">
+<script src="/js/main.js" defer></script>
 <%- include('../partials/nav')%>
 
 <main class="index">
-    <% games.forEach((a)=>{%>
-        <div class="card">
-            <h1><%= a.title %> </h1>
-            <img src="<%= a.image %> " alt="<%= a.title %> ">
-            <p><%= a.body %> </p>
-            <a href="/games/<%= a._id %>">Show more</a>
-        </div>
-    <%}) %> 
+    <h1>All The Games</h1>
+    <div class="container">
+       
+            <% games.forEach((a)=>{%>
+                <figure>
+                    <h1><%= a.title %> </h1>
+                    <img src="<%= a.image %> " alt="<%= a.title %> ">
+                    <a href="/games/<%= a._id %>">Show more</a>
+                </figure>
+            <%}) %> 
+ 
+    </div>
+
+
 
 </main>
 <%- include('../partials/footer')%>

@@ -1,17 +1,35 @@
 <%- include('../partials/header')%>
+<link rel="stylesheet" href="/css/show.css">
 <%- include('../partials/nav')%>
 <main class="show">
-<h1><%=game.title%></h1>
-<img src="<%=game.image%>" alt="<%=game.title%>">
-<iframe src="https://www.youtube.com/embed/<%=game.yt%>" frameborder="0"></iframe>
-<h2>Genre : <%=game.genre%></h2>
-<h2>PG Ratings : <%=game.pgRating%></h2>
-<h3>Over-All Ratings : <%-(parseInt(game.gameplay) + parseInt(game.storyline) + parseInt(game.graphics))/3 %></h3>
-<p>Gameplay : <%=game.gameplay%></p>
-<p>Storyline : <%=game.storyline%></p>
-<p>Grapihics : <%=game.graphics%></p>
-<p>Review: <%=game.review%></p>
-<a href="/games/<%=game._id%>/edit">Edit</a>
-<a href="/games/<%=game._id%>/delete">Delete</a>
+    <h1><%=game.title%></h1>
+    <div class="container">
+        <article>
+            <img src="<%=game.image%>" alt="<%=game.title%>">
+    
+    <h2>Genre : <span class="genre"><%=game.genre%></span></h2>
+    <h2>PG Ratings : <%=game.pgRating%></h2>
+    <p>Gameplay : <%=game.gameplay%></p>
+    <p>Storyline : <%=game.storyline%></p>
+    <p>Grapihics : <%=game.graphics%></p>
+    <h3>Over-All Ratings : <%-(parseInt(game.gameplay) + parseInt(game.storyline) + parseInt(game.graphics))/3 %></h3>
+   
+    
+        </article>
+        <section>
+            <iframe src="https://www.youtube.com/embed/<%=game.yt%>" frameborder="0"></iframe>
+            <div class="options">
+                <div class="button">
+                    <a href="/games/<%=game._id%>/edit">Edit</a>
+                    <a href="/games/<%=game._id%>/delete">Delete</a>
+                </div>
+                <p>Review: <%=game.review%></p>
+            </div>
+          
+        </section>
+    </div>
+   
+
+
 </main>
 <%- include('../partials/footer')%>
