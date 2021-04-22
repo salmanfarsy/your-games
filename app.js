@@ -1,7 +1,9 @@
 const express = require('express'),
 app = express(),
 gameRoute = require('./routes/games'),
+commentRoute = require('./routes/comment'),
 Game     = require('./models/game'),
+Comment = require('./models/comment'),
 methodOverride = require('method-override'),
 mongoose = require('mongoose');
 
@@ -15,13 +17,13 @@ mongoose.connect('mongodb://localhost/game1', {
   useFindAndModify: false,
   useCreateIndex: true
 });
-//global variables
 
 
 app.get('/', (req, res)=>{
     res.render('home');
 });
 app.use(gameRoute);
+app.use(commentRoute);
 
 
 app.listen(3000, ()=>{

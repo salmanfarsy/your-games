@@ -9,6 +9,10 @@ const gameSchema = new mongoose.Schema({
     storyline:{type:Number, min:0, max:10},
     graphics:{type:Number, min:0, max:10},
     pgRating :String,
-    yt:String
+    yt:String,
+    comments:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Comment'
+    }]
 });
 module.exports = mongoose.model('Game', gameSchema);

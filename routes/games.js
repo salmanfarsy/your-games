@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-Game     = require('../models/game'),
+const Game     = require('../models/game');
+const Comment = require('../models/comment');
 router.get('/games', (req, res)=>{
     Game.find({}, (err, games)=>{
       if(err){
@@ -16,7 +17,14 @@ router.get('/games', (req, res)=>{
   
   router.post('/games', (req, res)=>{
     const input = req.body.game;
-    input.yt = input.yt.slice(32);
+    function yt(){
+      if(input.yt.length > 40){
+        input.yt = input.yt.slice(32)
+      } else if( input.yt.length<30){
+        input.yt = input.yt.slice(17)
+      }
+    } ;
+    yt();
    
     Game.create(input, (err, newGame)=>{
       if(err){
@@ -29,7 +37,7 @@ router.get('/games', (req, res)=>{
   
   router.get('/games/:id', (req, res)=>{
     const id = req.params.id;
-    Game.findById(id, (err, game)=>{
+    Game.findById(id).populate('comments').exec((err, game)=>{
       if(err){
         console.log('THird', err)
       } else{
@@ -51,7 +59,15 @@ router.get('/games', (req, res)=>{
   router.put('/games/:id', (req, res)=>{
     const id = req.params.id;
     const input = req.body.game;
-    input.yt = input.yt.slice(32);
+    function yt(){
+      if(input.yt.length > 40){
+        input.yt = input.yt.slice(32)
+      } else if( input.yt.length<30){
+        input.yt = input.yt.slice(17)
+      }
+    } ;
+    yt();
+    // input.yt = input.yt.slice(32);
     Game.findByIdAndUpdate(id, input, (err, uptade)=>{
       if(err){
         console.log('fifth', err)

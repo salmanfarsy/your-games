@@ -6,15 +6,82 @@ img{
     grid-template-columns: 1fr 3fr;
 }
 iframe{
-    width: 80%;
+    width: 100%;
     height: 100%;
+    padding:2px;
+    border-radius: 10px;
+
 }
 .button{
     display: flex;
     justify-content: space-evenly;
 }
-article, section, .options{
+article, section, .options, .comment{
     border: white 3px solid;
     border-radius: 10px;
     margin: 10px;
+}
+article>*{
+    border-top: 1px solid white;
+    padding: 10px;
+}
+.button a{
+    --light-red:#ff0000;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--light-red);
+    border: 2px solid var(--light-red);
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding: 5px;
+    margin:5px auto ;
+    transition: all 0.5s;
+}
+.button a:hover{
+background-color: var(--light-red);
+color: black;
+}
+.button a:active{
+    background-color: var(--red);
+    border-color: var(--red);
+}
+.button a.edit{
+    color: var(--violet);
+    border-color: var(--violet);
+}
+.button a.edit:hover{
+    background-color: var(--violet);
+    color: black;
+}
+.button a.edit:active{
+    background-color: var(--dark-violet);
+    border-color: var(--dark-violet);
+}
+.options p{
+    font-size: 1.5rem;
+    border-top: white solid 1px;
+    padding: 10px;
+}
+.comment{
+    padding: 10px;
+}
+.comment button{
+    background-color: transparent;
+    padding: 2px;
+    color: var(--blue);
+    border-color: var(--blue);
+    border-radius: 5px;
+}
+.comment button:hover{
+    cursor: pointer;
+    background-color: var(--blue);
+    border-color: var(--blue);
+    color: black;
+}
+.comment button:active{
+    background-color: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+.comment form{
+    border-bottom: 1px white solid;
 }

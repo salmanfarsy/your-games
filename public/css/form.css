@@ -1,0 +1,19 @@
+.form{
+    width: 50%;
+    text-align: left;
+    font-size: 1.3rem;
+}
+.box{
+    width: 100%;
+    margin: 10px;
+}
+.box label{
+    width: 10%;
+}
+.box input, textarea, select{
+    width: 100%;
+    padding: .7rem;
+    font-size: 1rem;
+    background-color: var(--light-black);
+    color: var(--light-red);
+}

@@ -5,6 +5,9 @@
     --light-red:#D2292D;
     --light-black:#282828;
     --dark-blue:#0D3580;
+    --violet:#b030b0;
+    --dark-violet:#602080;
+    --deep-red:#ff0000;
 }
 *{
     margin: 0;
