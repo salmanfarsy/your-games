@@ -1,0 +1,18 @@
+<%- include('../partials/header')%>
+<link rel="stylesheet" href="/css/form.css">
+<%- include('../partials/nav')%>
+<h1>Register</h1>
+<form action="/register" method="POST" class="form">
+    <div class="box">
+        <label for="title">User Name</label>
+        <input type="text" name="username" placeholder="Username">
+    </div>
+    <div class="box">
+        <label for="image">Password</label>
+        <input type="password" name="password" placeholder="Password">
+    </div>
+    <input type="submit">
+</form>
+
+
+<%- include('../partials/footer')%>

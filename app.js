@@ -2,9 +2,14 @@ const express = require('express'),
 app = express(),
 gameRoute = require('./routes/games'),
 commentRoute = require('./routes/comment'),
+authRoute = require('./routes/auth'),
 Game     = require('./models/game'),
 Comment = require('./models/comment'),
+User   = require('./models/user'),
 methodOverride = require('method-override'),
+passport      = require('passport'),
+localStrategy = require('passport-local'),
+session      = require('express-session'),
 mongoose = require('mongoose');
 
 app.set('view engine', 'ejs');
@@ -17,11 +22,21 @@ mongoose.connect('mongodb://localhost/game1', {
   useFindAndModify: false,
   useCreateIndex: true
 });
-
+app.use(session({
+  secret:'Cricket used to be my favourite game',
+  resave:false,
+  saveUninitialized:false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+passport.use(new localStrategy(User.authenticate()));
 
 app.get('/', (req, res)=>{
     res.render('home');
 });
+app.use(authRoute);
 app.use(gameRoute);
 app.use(commentRoute);
 
