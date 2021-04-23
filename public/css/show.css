@@ -82,6 +82,34 @@ color: black;
     background-color: var(--dark-blue);
     border-color: var(--dark-blue);
 }
-.comment form{
+/* .comment form{
     border-bottom: 1px white solid;
+} */
+.btn{
+    display: flex;
+    justify-content: space-around;
+    border-top: white solid 1px; 
+    padding: 1px;
+}
+.comment p{
+    border-top: white solid 1px; 
+    font-size: 1.5rem; 
+    padding: 5px;
+}
+.btn button{
+    --red:#ff0000;
+    border: none;
+    color: var(--red);
+}
+.btn button:hover{
+    color: var(--black);
+    background-color: var(--red);
+}
+.btn a{
+    text-decoration: none;
+    color: cornflowerblue;
+}
+.btn a:hover{
+    color: var(--black);
+    background-color: cornflowerblue;
 }

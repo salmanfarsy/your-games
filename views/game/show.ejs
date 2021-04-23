@@ -35,10 +35,13 @@
                 <button>Add</button>
             </form>
             <%game.comments.forEach((a) => {%>
-               <p><%=a.text%> <a href="/games/<%=game._id%>/comment/<%=a._id%>/edit">Edit</a>
-            <form action="/games/<%=game._id%>/comment/<%=a._id%>?_method=DELETE" method="POST">
-            <button>Delete</button></form>
+               <p><%=a.text%>
             </p> 
+            <div class="btn">
+                <a href="/games/<%=game._id%>/comment/<%=a._id%>/edit">Edit</a>
+                <form action="/games/<%=game._id%>/comment/<%=a._id%>?_method=DELETE" method="POST">
+                <button>Delete</button></form>
+                </div> 
           <%  });%>
            
         </div>
