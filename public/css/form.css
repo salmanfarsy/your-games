@@ -17,3 +17,9 @@
     background-color: var(--light-black);
     color: var(--light-red);
 }
+p a{
+    color: var(--blue);
+}
+p a:hover{
+    color: var(--dark-blue);
+}

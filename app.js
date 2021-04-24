@@ -17,7 +17,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({extended : true}));
 app.use(methodOverride('_method'));
-mongoose.connect('mongodb://localhost/game1', {
+mongoose.connect('mongodb+srv://salman:yyM5vn0uXut6ModU@cluster0.bzg4h.mongodb.net/games?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -48,6 +48,6 @@ app.use(gameRoute);
 app.use(commentRoute);
 
 
-app.listen(3000, ()=>{
+app.listen(process.env.PORT || 3000, ()=>{
   console.log('your new server is running')
 });

@@ -9,9 +9,12 @@ router.get('/register', (req, res)=>{
 router.post('/register', (req, res)=>{
     User.register(new User({username : req.body.username}), req.body.password, (err, done)=>{
         if(err){
-            console.log(err)
+            console.log(err);
+            req.flash('error', 'user already exist or something went wrong');
+            res.redirect('back');
         } else{
             passport.authenticate('local')(req, res, ()=>{
+                req.flash('done', 'Welcome new User')
                 res.redirect('/games')
             })
         }
@@ -23,11 +26,14 @@ router.get('/login', (req, res)=>{
 
 router.post('/login', passport.authenticate('local', {
     successRedirect:'/games',
-    failureRedirect:'/login'
+    failureRedirect:'/login',
+    successFlash:'welcome new user',
+    failureFlash:'User not found'
 }) ,(req, res)=>{});
 
 router.get('/logout', (req, res)=>{
     req.logout();
+    req.flash('done', 'successfully logged out')
     res.redirect('back');
 })
 
