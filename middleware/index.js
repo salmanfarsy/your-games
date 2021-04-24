@@ -5,6 +5,7 @@ const middleware = {
         if(req.isAuthenticated()){
             next();
         } else{
+            req.flash('error', 'Please Register Or Login')
             res.redirect('/register');
         }
     },

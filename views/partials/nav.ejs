@@ -5,7 +5,7 @@
         
         <div class="nav">
             <p class="menu">Menu</p>
-            <ul id="nav" class="drop">
+            <ul id="nav">
                 <li><a href="/">Home</a></li>
                 <li><a href="/games">All Games</a></li>
                 <li><a href="/games/new">Add a Game</a></li>
@@ -22,3 +22,12 @@
         </div>
      
     </nav>
+    <section>
+        <% if(done.length>0){%>
+             <p class="good"><%=done%></p>
+         <%}%>
+         <%if(error.length > 0 ){%>
+             <p class="bad"><%=error%></p>
+         <%}%>
+       
+     </section>

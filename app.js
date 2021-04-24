@@ -10,8 +10,9 @@ methodOverride = require('method-override'),
 passport      = require('passport'),
 localStrategy = require('passport-local'),
 session      = require('express-session'),
+flash       = require('connect-flash'),
 mongoose = require('mongoose');
-
+app.use(flash());
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({extended : true}));
@@ -34,6 +35,8 @@ passport.deserializeUser(User.deserializeUser());
 passport.use(new localStrategy(User.authenticate()));
 app.use((req, res, next)=>{
   res.locals.user = req.user;
+  res.locals.error = req.flash('error');
+  res.locals.done = req.flash('done');
   next();
 })
 

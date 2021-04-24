@@ -71,6 +71,23 @@ footer{
     grid-template-columns: 100%;
     position: relative;
 }
+.good{
+    background-color: #48C9B0;
+    color: #0E6251;
+}
+.bad{
+        background-color: #F1948A ;
+        color: #B03A2E ;
+    
+}
+.good, .bad{
+    width: 75%;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin: 5px auto;
+    border-radius: 10px;
+}
+
 @media only screen and (max-width: 900px){
     nav ul{
         display: none;
