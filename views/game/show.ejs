@@ -3,6 +3,7 @@
 <%- include('../partials/nav')%>
 <main class="show">
     <h1><%=game.title.toUpperCase()%></h1>
+    <p>Posted by <%=game.author.username%></p>
     <div class="container">
         <article>
             <img src="<%=game.image%>" alt="<%=game.title%>">
@@ -19,10 +20,13 @@
         <section>
             <iframe src="https://www.youtube.com/embed/<%=game.yt%>" frameborder="0"></iframe>
             <div class="options">
-                <div class="button">
-                    <a href="/games/<%=game._id%>/edit" class="edit">Edit</a>
-                    <a href="/games/<%=game._id%>/delete">Delete</a>
-                </div>
+               <% if(game.author.id.equals(user._id)){%>
+                    <div class="button">
+                        <a href="/games/<%=game._id%>/edit" class="edit">Edit</a>
+                        <a href="/games/<%=game._id%>/delete">Delete</a>
+                    </div>
+              <%  }%>
+               
                 <p><strong>Review:</strong> <%=game.review%></p>
                 
             </div>
@@ -35,12 +39,16 @@
                 <button>Add</button>
             </form>
             <%game.comments.forEach((a) => {%>
-               <p><%=a.text%>
+               <p><%=a.author.username%> : <%=a.text%>
             </p> 
             <div class="btn">
+                <%if(a.author.id.equals(user._id)){%>
                 <a href="/games/<%=game._id%>/comment/<%=a._id%>/edit">Edit</a>
+                <%}%>
+                <%if(a.author.id.equals(user._id) || game.author.id.equals(user._id)){%>
                 <form action="/games/<%=game._id%>/comment/<%=a._id%>?_method=DELETE" method="POST">
                 <button>Delete</button></form>
+                <%}%>
                 </div> 
           <%  });%>
            

@@ -2,12 +2,23 @@
 <body>
     <nav>
         <h1>Your Games</h1>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/games">All Games</a></li>
-            <li><a href="/games/new">Add a Game</a></li>
-            <li><a href="/login">Login</a></li>
-            <li><a href="/register">Register</a></li>
-            <li><a href="logout">Logout</a></li>
-        </ul>
+        
+        <div class="nav">
+            <p class="menu">Menu</p>
+            <ul id="nav" class="drop">
+                <li><a href="/">Home</a></li>
+                <li><a href="/games">All Games</a></li>
+                <li><a href="/games/new">Add a Game</a></li>
+              <%  if(user){%>
+                    <li><a href="logout">Logout</a></li>
+                </ul>
+                <h2>Active : <%=user.username.toUpperCase()%></h2>
+                <%} else{%>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                </ul>
+                <%}%>
+               
+        </div>
+     
     </nav>

@@ -7,7 +7,7 @@
     --dark-blue:#0D3580;
     --violet:#b030b0;
     --dark-violet:#602080;
-    --deep-red:#ff0000;
+   
 }
 *{
     margin: 0;
@@ -56,4 +56,27 @@ main{
 }
 footer{
     background-color: var(--light-black);
+}
+.nav{
+    display: flex;
+}
+.nav h2{
+    color: var(--dark-blue);
+}
+.menu{
+    display: none;
+}
+.drop{
+    display: grid;
+    grid-template-columns: 100%;
+    position: relative;
+}
+@media only screen and (max-width: 900px){
+    nav ul{
+        display: none;
+    }
+.menu{
+    display: inline-block;
+    margin: 5px;
+}
 }

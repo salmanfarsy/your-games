@@ -2,7 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const Game     = require('../models/game');
 const Comment = require('../models/comment');
-router.get('/games', (req, res)=>{
+const middleware = require('../middleware');
+router.get('/games',  (req, res)=>{
     Game.find({}, (err, games)=>{
       if(err){
         console.log('first', err)
@@ -11,11 +12,11 @@ router.get('/games', (req, res)=>{
       }
     })
   });
-  router.get('/games/new', (req, res)=>{
+  router.get('/games/new', middleware.check, (req, res)=>{
     res.render('game/form')
   });
   
-  router.post('/games', (req, res)=>{
+  router.post('/games', middleware.check, (req, res)=>{
     const input = req.body.game;
     function yt(){
       if(input.yt.length > 40){
@@ -25,6 +26,10 @@ router.get('/games', (req, res)=>{
       }
     } ;
     yt();
+    input.author ={
+      username:req.user.username,
+      id:req.user._id
+    };
    
     Game.create(input, (err, newGame)=>{
       if(err){
@@ -35,7 +40,7 @@ router.get('/games', (req, res)=>{
     })
   });
   
-  router.get('/games/:id', (req, res)=>{
+  router.get('/games/:id', middleware.check, (req, res)=>{
     const id = req.params.id;
     Game.findById(id).populate('comments').exec((err, game)=>{
       if(err){
@@ -45,7 +50,7 @@ router.get('/games', (req, res)=>{
       }
     })
   });
-  router.get('/games/:id/edit', (req, res)=>{
+  router.get('/games/:id/edit',  middleware.gameAuth, (req, res)=>{
     const id = req.params.id;
     Game.findById(id, (err, game)=>{
       if(err){
@@ -56,7 +61,7 @@ router.get('/games', (req, res)=>{
     });
   });
   
-  router.put('/games/:id', (req, res)=>{
+  router.put('/games/:id', middleware.gameAuth, (req, res)=>{
     const id = req.params.id;
     const input = req.body.game;
     function yt(){
@@ -77,7 +82,7 @@ router.get('/games', (req, res)=>{
     })
   });
   
-  router.get('/games/:id/delete', (req, res)=>{
+  router.get('/games/:id/delete', middleware.gameAuth, (req, res)=>{
     Game.findById(req.params.id, (err, game)=>{
       if(err){
         console.log('sixth', err)
@@ -86,7 +91,7 @@ router.get('/games', (req, res)=>{
       }
     })
   });
-  router.delete('/games/:id', (req, res)=>{
+  router.delete('/games/:id', middleware.gameAuth, (req, res)=>{
     const id = req.params.id;
     Game.findByIdAndRemove(id, (err, done)=>{
       if(err){

@@ -32,6 +32,10 @@ app.use(passport.session());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 passport.use(new localStrategy(User.authenticate()));
+app.use((req, res, next)=>{
+  res.locals.user = req.user;
+  next();
+})
 
 app.get('/', (req, res)=>{
     res.render('home');
