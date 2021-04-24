@@ -129,13 +129,13 @@ input{
     margin: 1%;
     height: 100%;
 }
-@media only screen and (max-width: 900px){
+/* @media only screen and (max-width: 900px){
 iframe{
     height: 250px;
 }
-}
-@media only screen and (max-width: 600px){
-    .options p{
+} */
+@media only screen and (max-width: 900px){
+    /* .options p{
         font-size: 15px;
     }
     .column-1{
@@ -153,8 +153,11 @@ iframe{
     }
     .comment p{
         font-size: 12px;
-    }
-    .column-1{
+    } */
+    .column-1, .column-2{
         width: 100%;
+    }
+    .container{
+        flex-wrap: wrap;
     }
     }
