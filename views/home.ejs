@@ -1,10 +1,22 @@
 <%- include('partials/header')%>
 <link rel="stylesheet" href="/css/home.css">
+<style>
+    main{
+        background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(http://www.gamehackstudios.com/wp-content/uploads/2015/04/Need-for-Speed-Hot-Pursuit-Free-Download-1.png);
+        background-size: cover;
+        display: grid;
+        place-items: center;
+    
+    }
+</style>
 <%- include('partials/nav')%>
     <main>
-        <h1>Welcome To a library about games made from you</h1>
-        <p>This page is just made for gaming fan who wanna share about there passion of games and tell what they like and dislike and share their exprience with us</p>
-        <a href="/games">Show Games</a>
+        <div>
+            <h1>Welcome To a library about games made from you</h1>
+            <p>This page is just made for gaming fan who wanna share about there passion of games and tell what they like and dislike and share their exprience with us</p>
+            <a href="/games">Show Games</a>
+        </div>
+      
        
     </main>
     <%- include('partials/footer')%>
