@@ -5,54 +5,65 @@
     <h1><%=game.title.toUpperCase()%></h1>
     <p>Posted by <%=game.author.username%></p>
     <div class="container">
-        <article>
-            <img src="<%=game.image%>" alt="<%=game.title%>">
-    
-    <h2>Genre : <span class="genre"><%=game.genre%></span></h2>
-    <h2>PG Ratings : <%=game.pgRating%></h2>
-    <p>Gameplay : <%=game.gameplay%>/10</p>
-    <p>Storyline : <%=game.storyline%>/10</p>
-    <p>Grapihics : <%=game.graphics%>/10</p>
-    <h3>Over-All Ratings : <%-((parseInt(game.gameplay) + parseInt(game.storyline) + parseInt(game.graphics))/3).toFixed(2) %>/10</h3>
-   
-    
-        </article>
-        <section>
-            <iframe src="https://www.youtube.com/embed/<%=game.yt%>" frameborder="0"></iframe>
-            <div class="options">
-               <% if(game.author.id.equals(user._id)){%>
-                    <div class="button">
-                        <a href="/games/<%=game._id%>/edit" class="edit">Edit</a>
-                        <a href="/games/<%=game._id%>/delete">Delete</a>
-                    </div>
-              <%  }%>
+        <div class="column-1">
+            <article>
+                <img src="<%=game.image%>" alt="<%=game.title%>">
+        
+        <h2>Genre : <span class="genre"><%=game.genre%></span></h2>
+        <h2>PG Ratings : <%=game.pgRating%></h2>
+        <p>Gameplay : <%=game.gameplay%>/10</p>
+        <p>Storyline : <%=game.storyline%>/10</p>
+        <p>Grapihics : <%=game.graphics%>/10</p>
+        <h3>Over-All Ratings : <%-((parseInt(game.gameplay) + parseInt(game.storyline) + parseInt(game.graphics))/3).toFixed(2) %>/10</h3>
+       
+        
+            </article>
+            <div class="comment">
+                <h2>Comments</h2>
+                <form action="/games/<%=game._id%>/comment" method="POST">
+                    <input type="text" name="comment[text]">
+                    <button>Add</button>
+                </form>
+                <%game.comments.forEach((a) => {%>
+                   <p><%=a.author.username%> : <%=a.text%>
+                </p> 
+                <div class="btn">
+                    <%if(a.author.id.equals(user._id)){%>
+                    <a href="/games/<%=game._id%>/comment/<%=a._id%>/edit">Edit</a>
+                    <%}%>
+                    <%if(a.author.id.equals(user._id) || game.author.id.equals(user._id)){%>
+                    <form action="/games/<%=game._id%>/comment/<%=a._id%>?_method=DELETE" method="POST">
+                    <button>Delete</button></form>
+                    <%}%>
+                    </div> 
+              <%  });%>
                
-                <p><strong>Review:</strong> <%=game.review%></p>
-                
             </div>
-          
-        </section>
-        <div class="comment">
-            <h2>Comments</h2>
-            <form action="/games/<%=game._id%>/comment" method="POST">
-                <input type="text" name="comment[text]">
-                <button>Add</button>
-            </form>
-            <%game.comments.forEach((a) => {%>
-               <p><%=a.author.username%> : <%=a.text%>
-            </p> 
-            <div class="btn">
-                <%if(a.author.id.equals(user._id)){%>
-                <a href="/games/<%=game._id%>/comment/<%=a._id%>/edit">Edit</a>
-                <%}%>
-                <%if(a.author.id.equals(user._id) || game.author.id.equals(user._id)){%>
-                <form action="/games/<%=game._id%>/comment/<%=a._id%>?_method=DELETE" method="POST">
-                <button>Delete</button></form>
-                <%}%>
-                </div> 
-          <%  });%>
-           
+
         </div>
+        <div class="column-2">
+            <section>
+                <iframe src="https://www.youtube.com/embed/<%=game.yt%>" frameborder="0"></iframe>
+            </section>
+                <div class="options">
+                   <% if(game.author.id.equals(user._id)){%>
+                        <div class="button">
+                            <a href="/games/<%=game._id%>/edit" class="edit">Edit</a>
+                            <a href="/games/<%=game._id%>/delete">Delete</a>
+                        </div>
+                  <%  }%>
+                
+                    <p><strong>Review:</strong> <%=game.review%></p>
+                  
+                    
+                </div>
+
+        </div>
+      
+       
+          
+     
+       
     </div>
    
 

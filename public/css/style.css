@@ -58,6 +58,7 @@ main{
 }
 footer{
     background-color: var(--light-black);
+    margin-top: 10px;
 }
 .nav{
     display: flex;
@@ -125,5 +126,8 @@ input[type = submit]:hover{
 .menu{
     display: inline-block;
     margin: 5px;
+}
+iframe{
+    height: 250px;
 }
 }

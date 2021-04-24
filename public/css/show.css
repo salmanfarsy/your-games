@@ -2,12 +2,14 @@ img{
     width: 100%;
 }
 .container{
-    display: grid;
-    grid-template-columns: 1fr 3fr;
+   display: flex;
+    margin-bottom: 5%;
+    word-wrap: break-word;
+
 }
 iframe{
     width: 100%;
-    height: 100%;
+    height:500px;
     padding:2px;
     border-radius: 10px;
 
@@ -20,6 +22,7 @@ article, section, .options, .comment{
     border: white 3px solid;
     border-radius: 10px;
     margin: 10px;
+    width: 100%;
 }
 article>*{
     border-top: 1px solid white;
@@ -64,6 +67,10 @@ color: black;
 }
 .comment{
     padding: 10px;
+    width: 100%;
+}
+input{
+    width: 100%;
 }
 .comment button{
     background-color: transparent;
@@ -113,3 +120,22 @@ color: black;
     color: var(--black);
     background-color: cornflowerblue;
 }
+.column-1{
+    width: 20%;
+    margin: 1%;
+}
+.column-2{
+    width: 80%;
+    margin: 1%;
+    height: 100%;
+}
+@media only screen and (max-width: 900px){
+iframe{
+    height: 250px;
+}
+}
+@media only screen and (max-width: 900px){
+    .options p{
+        font-size: 15px;
+    }
+    }
