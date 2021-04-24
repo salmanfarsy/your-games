@@ -138,4 +138,11 @@ iframe{
     .options p{
         font-size: 15px;
     }
+    .column-1{
+        height: 100%;
+    }
+    article{
+        height: 100%;
+        font-size: 5px;
+    }
     }
