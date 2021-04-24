@@ -134,7 +134,7 @@ iframe{
     height: 250px;
 }
 }
-@media only screen and (max-width: 900px){
+@media only screen and (max-width: 600px){
     .options p{
         font-size: 15px;
     }
@@ -143,6 +143,18 @@ iframe{
     }
     article{
         height: 100%;
-        font-size: 5px;
+        font-size: 10px;
+    }
+    article>*{
+        padding: 1px;
+    }
+    .comment{
+        font-size: 10px;
+    }
+    .comment p{
+        font-size: 12px;
+    }
+    .column-1{
+        width: 100%;
     }
     }
