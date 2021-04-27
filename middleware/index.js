@@ -17,7 +17,7 @@ const middleware = {
                 if(game.author.id.equals(req.user._id)){
                     next();
                 } else{
-                    res.redirect('/')
+                    res.redirect('/register')
                 }
             }
         })

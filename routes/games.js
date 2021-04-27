@@ -40,7 +40,7 @@ router.get('/games',  (req, res)=>{
     })
   });
   
-  router.get('/games/:id', (req, res)=>{
+  router.get('/games/:id', middleware.check, (req, res)=>{
     const id = req.params.id;
     Game.findById(id).populate('comments').exec((err, game)=>{
       if(err){
